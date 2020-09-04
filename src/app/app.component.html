@@ -1,0 +1,30 @@
+<form [formGroup]="addForm">
+	<div formArrayName="rows">
+		<!-- <ng-container *ngIf="storedIndex">
+			<div *ngFor="let idx of storedIndex" [ngClass]="{'highlight':idx}">
+			</div>
+		</ng-container> -->
+		<!-- <div *ngFor="let row of addForm.controls.rows.controls; let i = index" [ngClass]="{'highlight':storedIndex.indexOf(i)==-1}"> -->
+      	<div *ngFor="let row of addForm.controls.rows.controls; let i = index" [ngClass]="{'highlight':applyClass(i)}">
+			<tr [formGroupName]="i">
+				<td>
+					<ng-select [items]="conditions" bindLabel="name" formControlName="condition"
+						(change)="onSelectValue($event,i)">
+					</ng-select>
+				</td>
+				<td>
+					<button
+              type="button"
+              class="btn btn-square btn-danger btn-sm waves-effect waves-light"
+              (click)="onDeleteRow(i)"
+            >
+              <i class="icofont icofont-ui-delete"></i> Remove
+            </button>
+				</td>
+			</tr>
+		</div>
+
+
+		<button type="button" (click)="initGroup()">Add Row</button>
+	</div>
+</form>
