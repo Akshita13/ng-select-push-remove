@@ -46,20 +46,25 @@ export class AppComponent {
   }
 
   onDeleteRow(i) {
+    console.log(i,"i")
     let rows = this.addForm.get("rows") as FormArray;
     rows.removeAt(i);
+    // this.storedIndex=this.storedIndex.filter((index)=>{return index!==i})
+
+    // console.log(this.storedIndex, "this.storedIndex------");
+    
   }
 
-  applyClass(i) {
-    console.log(i);
-    console.log(this.storedIndex, "this.storedIndex------");
+  // applyClass(i) {
+  //   console.log(i);
+  //   console.log(this.storedIndex, "this.storedIndex------");
 
-    if (this.storedIndex.length==0) {
-      return this.storedIndex.indexOf(i) == -1;
-    } else {
-      return;
-    }
-  }
+  //   if (this.storedIndex.length==0) {
+  //     return this.storedIndex.indexOf(i) == -1;
+  //   } else {
+  //     return;
+  //   }
+  // }
 
   onSelectValue(value, i) {
     if (value.name === "if" || value.name==="end") {
