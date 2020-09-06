@@ -28,6 +28,8 @@ export class AppComponent {
   array = [];
   startIndex: number;
   endIndex: number;
+ indexArray=[]
+ otherIndex=[]
   constructor(private fb: FormBuilder) {
     this.addForm = this.fb.group({
       rows: this.fb.array([])
@@ -60,11 +62,23 @@ export class AppComponent {
   }
 
   onSelectValue(value, i) {
-    console.log(value, "value", i);
-
-    if (value.name === "if") {
-      this.storedIndex.push({ i: i, name: value.name });
+    if (value.name === "if" || value.name==="end") {
+      this.indexArray.push({ i: i, name: value.name });
+      this.indexArray.forEach((item)=>{
+        if(item.i===i){
+          this.storedIndex.push(i)
+        }
+      })
+    }else{
+      this.otherIndex=this.indexArray.filter((item)=>{return item.i!==i})
+      this.storedIndex=[]
+      this.indexArray=this.otherIndex
+      console.log(this.indexArray,"indexarray")
+      console.log(this.otherIndex,"abc")
+      this.otherIndex.forEach((item)=>{
+          this.storedIndex.push(item.i)
+      })
     }
-    console.log(this.storedIndex, "this.storedIndex");
+    // console.log(this.storedIndex, "this.storedIndex");
   }
 }

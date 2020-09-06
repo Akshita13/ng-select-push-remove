@@ -4,8 +4,8 @@
 			<div *ngFor="let idx of storedIndex" [ngClass]="{'highlight':idx}">
 			</div>
 		</ng-container> -->
-		<!-- <div *ngFor="let row of addForm.controls.rows.controls; let i = index" [ngClass]="{'highlight':storedIndex.indexOf(i)==-1}"> -->
-      	<div *ngFor="let row of addForm.controls.rows.controls; let i = index" [ngClass]="{'highlight':applyClass(i)}">
+		<div *ngFor="let row of addForm.controls.rows.controls; let i = index" [ngClass]="{'highlight':storedIndex.indexOf(i)==-1}">
+      	<!-- <div *ngFor="let row of addForm.controls.rows.controls; let i = index" [ngClass]="{'highlight':applyClass(i)}"> -->
 			<tr [formGroupName]="i">
 				<td>
 					<ng-select [items]="conditions" bindLabel="name" formControlName="condition"
