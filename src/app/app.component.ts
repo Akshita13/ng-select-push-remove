@@ -73,12 +73,9 @@ export class AppComponent {
       this.otherIndex=this.indexArray.filter((item)=>{return item.i!==i})
       this.storedIndex=[]
       this.indexArray=this.otherIndex
-      console.log(this.indexArray,"indexarray")
-      console.log(this.otherIndex,"abc")
       this.otherIndex.forEach((item)=>{
           this.storedIndex.push(item.i)
       })
     }
-    // console.log(this.storedIndex, "this.storedIndex");
   }
 }
